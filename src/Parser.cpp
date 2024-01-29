@@ -70,10 +70,12 @@ stringstream Parse_hex(fstream& fs, size_t length) {
 	}
 	auto it = find(next(sum.rbegin(), 1), sum.rend(), '\n');
 	stringstream result;
+	//Parse prev sentance hex
 	if (it != sum.rend()) {
 		result << *(next(it, 2));
 		result << *(next(it, 1));
 	}
+	//Parse last sentance hex
 	result << sum[sum.size() - 3];
 	result << sum[sum.size() - 2];
 	return result;
